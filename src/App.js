@@ -17,6 +17,7 @@ function App() {
   const [tokens, setTokens] = useState([]);
   const [transfers, setTransfers] = useState([]);
   const [nfts, setNfts] = useState([]);
+  const [filteredNfts, setFilteredNfts] = useState([]);
 
   return (
     <div className="App">
@@ -47,7 +48,14 @@ function App() {
         transfers={transfers}
         setTransfers={setTransfers}
       />
-      <Nfts wallet={wallet} chain={chain} nfts={nfts} setNfts={setNfts} />
+      <Nfts
+        wallet={wallet}
+        chain={chain}
+        nfts={nfts}
+        setNfts={setNfts}
+        filteredNfts={filteredNfts}
+        setFilteredNfts={setFilteredNfts}
+      />
     </div>
   );
 }
