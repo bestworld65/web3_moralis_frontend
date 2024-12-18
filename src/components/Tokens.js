@@ -33,15 +33,15 @@ function Tokens({ wallet, chain, tokens, setTokens }) {
         <button onClick={getTokenBalances}>Get Tokens</button>
         <br />
         {tokens.length > 0 &&
-          tokens.map((e) => {
+          tokens.map((e, key) => {
             return (
-              <>
+              <div key={key}>
                 <span>
                   {e.symbol} {e.bal} ($
                   {e.val})
                 </span>
                 <br />
-              </>
+              </div>
             );
           })}
       </p>

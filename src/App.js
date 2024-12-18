@@ -3,15 +3,18 @@ import { useState } from "react";
 import WalletInputs from "./components/WalletInputs";
 import NativeTokens from "./components/NativeTokens";
 import Tokens from "./components/Tokens";
+import PortfolioValue from "./components/PortfolioValue";
+import TransferHistory from "./components/TransferHistory";
 
 function App() {
   const [wallet, setWallet] = useState(
-    "0x8badd8b59DdAf9A12c4910Ca1B2E8ea750A71594"
+    "0xCE23f6f27E7b4D759b0AB64cce95394A21719d1a"
   );
   const [chain, setChain] = useState("0x1");
   const [nativeBalance, setNativeBalance] = useState(0);
   const [nativeValue, setNativeValue] = useState(0);
   const [tokens, setTokens] = useState([]);
+  const [transfers, setTransfers] = useState([]);
 
   return (
     <div className="App">
@@ -34,6 +37,13 @@ function App() {
         chain={chain}
         tokens={tokens}
         setTokens={setTokens}
+      />
+      <PortfolioValue nativeValue={nativeValue} tokens={tokens} />
+      <TransferHistory
+        chain={chain}
+        wallet={wallet}
+        transfers={transfers}
+        setTransfers={setTransfers}
       />
     </div>
   );
