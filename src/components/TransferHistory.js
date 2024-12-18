@@ -21,6 +21,7 @@ function TransferHistory({ chain, wallet, transfers, setTransfers }) {
         <button onClick={getTokenTransfers}>Fetch Transfers</button>
         <table>
           <tr>
+            <th>No</th>
             <th>Token</th>
             <th>Amount</th>
             <th>From</th>
@@ -28,9 +29,10 @@ function TransferHistory({ chain, wallet, transfers, setTransfers }) {
             <th>Date</th>
           </tr>
           {transfers.length > 0 &&
-            transfers.map((e) => {
+            transfers.map((e, key) => {
               return (
                 <tr>
+                  <td>{key + 1}</td>
                   <td>{e.symbol}</td>
                   <td>
                     {(Number(e.value) / Number(`1e${e.decimals}`)).toFixed(3)}
